@@ -26,7 +26,7 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', routes.index);
+app.get('/token', routes.token);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
