@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -11,8 +10,6 @@ var app = module.exports = express.createServer();
 // Configuration
 
 app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -31,6 +28,7 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 
-app.listen(3000, function(){
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
