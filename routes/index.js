@@ -19,6 +19,7 @@ exports.token = function(req, res){
           , token_type = _ref[1].split("=")[1]
           , data = {access_token: access_token, token_type: token_type}
       }
-      res.redirect(params.redirect_url+"?access_token="+ access_token +"&token_type=" +token_type);
+      var redirect_url = params.redirect_url.match(/\?/) ? params.redirect_url+"&" : params.redirect_url+"?";
+      res.redirect(redirect_url+"access_token="+ access_token +"&token_type=" +token_type)
     });
 };
